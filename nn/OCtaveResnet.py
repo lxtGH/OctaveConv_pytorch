@@ -83,9 +83,7 @@ class Bottleneck(nn.Module):
     def forward(self, x):
 
         if self.first:
-            print(x.size())
             x_h_res, x_l_res = self.ocb1(x)
-            print(x_h_res.size(),x_l_res.size())
             x_h, x_l = self.ocb2((x_h_res, x_l_res))
         else:
             x_h_res, x_l_res = x
@@ -281,6 +279,7 @@ class OCtaveResNet(nn.Module):
 
         return x
 
+
 def resnet50(pretrained=False, **kwargs):
     """Constructs a ResNet-50 model.
 
@@ -288,8 +287,6 @@ def resnet50(pretrained=False, **kwargs):
         pretrained (bool): If True, returns a model pre-trained on ImageNet
     """
     model = OCtaveResNet(Bottleneck, [3, 4, 6, 3], **kwargs)
-    # if pretrained:
-    #     model.load_state_dict(model_zoo.load_url(model_urls['resnet50']))
     return model
 
 
@@ -300,13 +297,22 @@ def resnet101(pretrained=False, **kwargs):
         pretrained (bool): If True, returns a model pre-trained on ImageNet
     """
     model = OCtaveResNet(Bottleneck, [3, 4, 23, 3], **kwargs)
-    # if pretrained:
-    #     model.load_state_dict(model_zoo.load_url(model_urls['resnet101']))
+    return model
+
+
+def resnet152(pretrained=False, **kwargs):
+    """Constructs a ResNet-152 model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet
+    """
+    model = OCtaveResNet(Bottleneck, [3, 8, 36, 3], **kwargs)
     return model
 
 
 if __name__ == '__main__':
-    model = resnet50().cuda()
+    model = resnet152().cuda()
+    print(model)
     i = torch.Tensor(1,3,256,256).cuda()
     y= model(i)
     print(y.size())
