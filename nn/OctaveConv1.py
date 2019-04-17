@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 # Author: Xiangtai(lxtpku@pku.edu.cn)
 # Pytorch Implementation of Octave Conv Operation
-#
+# This version uses F.conv2d with learnable sampled weights
 
 import torch
 import torch.nn as nn
@@ -153,7 +153,7 @@ class OctaveCBR(nn.Module):
     def __init__(self,in_channels, out_channels, kernel_size=(3,3),alpha_in=0.5, alpha_out=0.5, stride=1, padding=1, dilation=1,
                  groups=1, bias=False, up_kwargs = up_kwargs, norm_layer=nn.BatchNorm2d):
         super(OctaveCBR, self).__init__()
-        self.conv = OctaveConv(in_channels,out_channels,kernel_size, alpha_in,alpha_out,stride,padding,dilation,groups,bias,up_kwargs)
+        self.conv = OctaveConv(in_channels,out_channels,kernel_size, alpha_in,alpha_out, stride, padding, dilation, groups, bias, up_kwargs)
         self.bn_h = norm_layer(int(out_channels*(1-alpha_out)))
         self.bn_l = norm_layer(int(out_channels*alpha_out))
         self.relu = nn.ReLU(inplace=True)

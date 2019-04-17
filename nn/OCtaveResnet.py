@@ -3,9 +3,9 @@
 # Author: Xiangtai(lxtpku@pku.edu.cn)
 # Pytorch Implementation of Octave Resnet
 
-
 import torch.nn as nn
-from nn.OctaveConv import *
+# from nn.OctaveConv1 import *
+from nn.OctaveConv2 import *
 
 
 def conv3x3(in_planes, out_planes, stride=1, groups=1):
@@ -116,7 +116,7 @@ class BottleneckLast(nn.Module):
             norm_layer = nn.BatchNorm2d
         width = int(planes * (base_width / 64.)) * groups
         # Last means the end of two branch
-        self.ocb1 = OctaveCBR(inplanes,width,kernel_size=(1,1),padding=0)
+        self.ocb1 = OctaveCBR(inplanes, width,kernel_size=(1,1),padding=0)
         self.ocb2 = OctaveCBR(width, width, kernel_size=(3, 3), stride=stride, groups=groups, norm_layer=norm_layer)
         self.ocb3 = LastOCtaveCB(width, planes * self.expansion, kernel_size=(1, 1), norm_layer=norm_layer, padding=0)
         self.relu = nn.ReLU(inplace=True)
