@@ -113,7 +113,7 @@ class Res2NetBlockSE(nn.Module):
 class Res2NetBottleneck(nn.Module):
     expansion = 4
 
-    def __init__(self, inplanes, planes, scale=1, stride=1, downsample=None, groups=1, norm_layer=None, se=False):
+    def __init__(self, inplanes, planes, scale=1, stride=1, downsample=None, groups=1, norm_layer=None, se=False,reduction=16):
         super(Res2NetBottleneck, self).__init__()
         if norm_layer is None:
             norm_layer = nn.BatchNorm2d
@@ -121,10 +121,7 @@ class Res2NetBottleneck(nn.Module):
         self.conv1 = conv1x1(inplanes, planes)
         self.bn1 = norm_layer(planes)
         if downsample is None and scale > 1:
-            if se:
-                self.conv2 = Res2NetBlockSE(planes, scale, stride, groups)
-            else:
-                self.conv2 = Res2NetBlock(planes, scale, stride, groups)
+            self.conv2 = Res2NetBlock(planes, scale, stride, groups)
         else:
             self.conv2 = conv3x3(planes, planes, stride, groups)
         self.bn2 = norm_layer(planes)
@@ -133,6 +130,9 @@ class Res2NetBottleneck(nn.Module):
         self.relu = nn.ReLU(inplace=True)
         self.downsample = downsample
         self.stride = stride
+        self.se = se
+        if se:
+            self.se_layer = SELayer(planes*self.expansion, reduction=reduction)
 
     def forward(self, x):
         identity = x
@@ -147,6 +147,8 @@ class Res2NetBottleneck(nn.Module):
 
         out = self.conv3(out)
         out = self.bn3(out)
+        if self.se:
+            out = self.se_layer(out)
 
         if self.downsample is not None:
             identity = self.downsample(x)
@@ -334,7 +336,8 @@ def se_resnext101_32x8d(scale=4, **kwargs):
 
 
 if __name__ == '__main__':
-    model = resnext101_32x8d().cuda()
+    # model = resnext101_32x8d().cuda()
+    model = se_resnet50().cuda()
     print(model)
     i = torch.Tensor(1,3,256,256).cuda()
     y= model(i)

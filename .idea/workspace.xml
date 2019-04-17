@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47e1832e-d3f5-4aad-b2e0-4a1c97017455" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nn/AdaptiveConv.py" beforeDir="false" afterPath="$PROJECT_DIR$/nn/AdaptiveConv.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nn/res2net.py" beforeDir="false" afterPath="$PROJECT_DIR$/nn/res2net.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,7 +17,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/OctaveConv_pytorch$OctaveConv2.coverage" NAME="OctaveConv2 Coverage Results" MODIFIED="1555468945305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/nn" />
-    <SUITE FILE_PATH="coverage/OctaveConv_pytorch$res2net.coverage" NAME="res2net Coverage Results" MODIFIED="1555477292028" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/nn" />
+    <SUITE FILE_PATH="coverage/OctaveConv_pytorch$res2net.coverage" NAME="res2net Coverage Results" MODIFIED="1555478977176" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/nn" />
     <SUITE FILE_PATH="coverage/OctaveConv_pytorch$resnet.coverage" NAME="resnet Coverage Results" MODIFIED="1555423437254" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/nn" />
     <SUITE FILE_PATH="coverage/OctaveConv_pytorch$OctaveConv.coverage" NAME="OctaveConv Coverage Results" MODIFIED="1555424672923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/nn" />
     <SUITE FILE_PATH="coverage/OctaveConv_pytorch$OCtaveResnet.coverage" NAME="OCtaveResnet Coverage Results" MODIFIED="1555469945954" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/nn" />
@@ -75,8 +76,8 @@
       <file leaf-file-name="resnet.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nn/resnet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="234" column="51" selection-start-line="234" selection-start-column="51" selection-end-line="234" selection-end-column="51" />
+            <state relative-caret-position="594">
+              <caret line="27" column="43" lean-forward="true" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -103,21 +104,20 @@
       <file leaf-file-name="AdaptiveConv.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nn/AdaptiveConv.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="110">
+              <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="res2net.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="res2net.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nn/res2net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4524">
-              <caret line="321" column="16" lean-forward="true" selection-start-line="321" selection-start-column="16" selection-end-line="321" selection-end-column="16" />
+            <state relative-caret-position="2552">
+              <caret line="131" column="28" lean-forward="true" selection-start-line="131" selection-start-column="28" selection-end-line="131" selection-end-column="28" />
               <folding>
                 <element signature="e#509#521#0" expanded="true" />
                 <element signature="e#1956#2492#0" />
-                <element signature="e#1964#3218#0" />
               </folding>
             </state>
           </provider>
@@ -135,10 +135,9 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2728">
-              <caret line="134" column="9" lean-forward="true" selection-start-line="134" selection-start-column="9" selection-end-line="134" selection-end-column="9" />
+            <state relative-caret-position="396">
+              <caret line="18" column="24" lean-forward="true" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
               <folding>
-                <element signature="e#0#15#0" expanded="true" />
                 <element signature="e#3936#4354#0" />
                 <element signature="e#4393#4513#0" />
               </folding>
@@ -146,12 +145,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="44">
-                <caret line="2" column="74" selection-start-line="2" selection-start-column="74" selection-end-line="2" selection-end-column="74" />
+              <first_editor relative-caret-position="393">
+                <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
               </first_editor>
               <second_editor />
             </state>
@@ -180,10 +179,11 @@
     <findStrings>
       <find>downsample</find>
       <find>base_width</find>
-      <find>conv1x1</find>
       <find>LastOctaveConv</find>
       <find>model</find>
       <find>print</find>
+      <find>conv1x1</find>
+      <find>models</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -201,10 +201,10 @@
         <option value="$PROJECT_DIR$/nn/OctaveConv2.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/nn/OCtaveResnet.py" />
-        <option value="$PROJECT_DIR$/nn/AdaptiveConv.py" />
         <option value="$PROJECT_DIR$/LICENSE" />
-        <option value="$PROJECT_DIR$/nn/res2net.py" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/nn/AdaptiveConv.py" />
+        <option value="$PROJECT_DIR$/nn/res2net.py" />
       </list>
     </option>
   </component>
@@ -411,11 +411,11 @@
       <window_info anchor="bottom" id="TODO" order="12" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="2" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="8" visible="true" weight="0.32911393" />
+      <window_info active="true" anchor="bottom" id="Run" order="8" visible="true" weight="0.32911393" />
       <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Python Console" order="3" />
       <window_info anchor="bottom" id="Terminal" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.24970035" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.24970035" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="2" weight="0.32960448" />
       <window_info anchor="right" id="SciView" order="0" />
@@ -501,16 +501,6 @@
     <entry file="file://$PROJECT_DIR$/fig/octave_conv.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/nn/resnet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="234" column="51" selection-start-line="234" selection-start-column="51" selection-end-line="234" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nn/OctaveConv1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -549,18 +539,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2728">
-          <caret line="134" column="9" lean-forward="true" selection-start-line="134" selection-start-column="9" selection-end-line="134" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <element signature="e#3936#4354#0" />
-            <element signature="e#4393#4513#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nn/OCtaveResnet.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
@@ -575,32 +553,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nn/res2net.py">
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="393">
+            <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nn/resnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4524">
-          <caret line="321" column="16" lean-forward="true" selection-start-line="321" selection-start-column="16" selection-end-line="321" selection-end-column="16" />
+        <state relative-caret-position="594">
+          <caret line="27" column="43" lean-forward="true" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
           <folding>
-            <element signature="e#509#521#0" expanded="true" />
-            <element signature="e#1956#2492#0" />
-            <element signature="e#1964#3218#0" />
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nn/AdaptiveConv.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="110">
+          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="44">
-            <caret line="2" column="74" selection-start-line="2" selection-start-column="74" selection-end-line="2" selection-end-column="74" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="18" column="24" lean-forward="true" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+          <folding>
+            <element signature="e#3936#4354#0" />
+            <element signature="e#4393#4513#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nn/res2net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2552">
+          <caret line="131" column="28" lean-forward="true" selection-start-line="131" selection-start-column="28" selection-end-line="131" selection-end-column="28" />
+          <folding>
+            <element signature="e#509#521#0" expanded="true" />
+            <element signature="e#1956#2492#0" />
+          </folding>
         </state>
       </provider>
     </entry>
