@@ -12,9 +12,9 @@
   ![](fig/res2net.png)
   
 ## Plan
--[X] add Res2Net bolock 
--[X] add Adaptive-Convolution
--[X] Train on Cifar/Imagenet
+1. add Res2Net bolock (done)
+2. add Adaptive-Convolution ()
+3. Train on Cifar/Imagenet ()
 
 ### Usage
 

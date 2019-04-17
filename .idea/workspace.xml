@@ -4,10 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/nn/OCtaveResnet.py" line="89" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47e1832e-d3f5-4aad-b2e0-4a1c97017455" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/nn/AdaptiveConv.py" beforeDir="false" afterPath="$PROJECT_DIR$/nn/AdaptiveConv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nn/res2net.py" beforeDir="false" afterPath="$PROJECT_DIR$/nn/res2net.py" afterDir="false" />
-    </list>
+    <list default="true" id="47e1832e-d3f5-4aad-b2e0-4a1c97017455" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +98,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdaptiveConv.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AdaptiveConv.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nn/AdaptiveConv.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="110">
@@ -110,11 +107,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="res2net.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="res2net.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nn/res2net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2552">
-              <caret line="131" column="28" lean-forward="true" selection-start-line="131" selection-start-column="28" selection-end-line="131" selection-end-column="28" />
+            <state relative-caret-position="-704">
+              <caret line="100" column="18" lean-forward="true" selection-start-line="100" selection-start-column="18" selection-end-line="100" selection-end-column="18" />
               <folding>
                 <element signature="e#509#521#0" expanded="true" />
                 <element signature="e#1956#2492#0" />
@@ -203,8 +200,8 @@
         <option value="$PROJECT_DIR$/nn/OCtaveResnet.py" />
         <option value="$PROJECT_DIR$/LICENSE" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/nn/AdaptiveConv.py" />
         <option value="$PROJECT_DIR$/nn/res2net.py" />
+        <option value="$PROJECT_DIR$/nn/AdaptiveConv.py" />
       </list>
     </option>
   </component>
@@ -411,11 +408,11 @@
       <window_info anchor="bottom" id="TODO" order="12" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="2" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="8" visible="true" weight="0.32911393" />
+      <window_info anchor="bottom" id="Run" order="8" visible="true" weight="0.32911393" />
       <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Python Console" order="3" />
       <window_info anchor="bottom" id="Terminal" order="4" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.24970035" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.24970035" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="2" weight="0.32960448" />
       <window_info anchor="right" id="SciView" order="0" />
@@ -573,13 +570,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nn/AdaptiveConv.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -593,12 +583,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nn/res2net.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2552">
-          <caret line="131" column="28" lean-forward="true" selection-start-line="131" selection-start-column="28" selection-end-line="131" selection-end-column="28" />
+        <state relative-caret-position="-704">
+          <caret line="100" column="18" lean-forward="true" selection-start-line="100" selection-start-column="18" selection-end-line="100" selection-end-column="18" />
           <folding>
             <element signature="e#509#521#0" expanded="true" />
             <element signature="e#1956#2492#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nn/AdaptiveConv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
         </state>
       </provider>
     </entry>
