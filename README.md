@@ -13,8 +13,8 @@
   
 ## Plan
 1. add Res2Net bolock (done)
-2. add Adaptive-Convolution (done)
-3. Train on Cifar/Imagenet
+2. add Adaptive-Convolution ()
+3. Train on Cifar/Imagenet ()
 
 ### Usage
 
