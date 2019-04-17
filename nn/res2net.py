@@ -1,8 +1,9 @@
-"""
-Unofficial implementation of the Res2Net module from: Res2Net: A New Multi-scale Backbone Architecture
-Original code from: https://github.com/pytorch/vision/blob/master/torchvision/models/resnet.py
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+# Author: Xiangtai Li(lxtpku@pku.edu.cn)
+# Pytorch Implementation of Res2Net
+# original code from: https://github.com/pytorch/vision/blob/master/torchvision/models/resnet.py
 
-"""
 
 import torch
 import torch.nn as nn

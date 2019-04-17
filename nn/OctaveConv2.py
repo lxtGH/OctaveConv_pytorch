@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-# Author: Xiangtai(lxtpku@pku.edu.cn)
+# Author: Xiangtai Li(lxtpku@pku.edu.cn)
 # Pytorch Implementation of Octave Conv Operation
 # This version use nn.Conv2d because alpha_in always equals alpha_out
 

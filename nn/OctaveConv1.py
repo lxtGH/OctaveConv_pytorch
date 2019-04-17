@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-# Author: Xiangtai(lxtpku@pku.edu.cn)
+# Author: Xiangtai Li(lxtpku@pku.edu.cn)
 # Pytorch Implementation of Octave Conv Operation
 # This version uses F.conv2d with learnable sampled weights
 

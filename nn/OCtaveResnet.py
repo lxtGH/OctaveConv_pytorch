@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-# Author: Xiangtai(lxtpku@pku.edu.cn)
+# Author: Xiangtai Li(lxtpku@pku.edu.cn)
 # Pytorch Implementation of Octave Resnet
-
+# original code from: https://github.com/pytorch/vision/blob/master/torchvision/models/resnet.py
 import torch.nn as nn
 # from nn.OctaveConv1 import *
 from nn.OctaveConv2 import *
