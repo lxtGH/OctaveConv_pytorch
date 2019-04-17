@@ -4,7 +4,8 @@
 # Pytorch Implementation of Adaptive Conv
 # This is un-offical implementation of Adaptive Conv
 # PixelAwareAdaptiveBottleneck: (finished)
-# DataSetAwareAdaptiveBottleneck: depends on input size (unfinished)
+# DataSetAwareAdaptiveBottleneck: depends on input size (finished) which is position sensitive
+# (data sensitive with learnable weights)
 
 import torch
 import torch.nn as nn
@@ -26,7 +27,7 @@ class PixelAwareAdaptiveBottleneck(nn.Module):
     expansion = 4
 
     def __init__(self, inplanes, planes, stride=1, downsample=None, groups=1,
-                 base_width=64, norm_layer=None):
+                 base_width=64, norm_layer=None, input_size=None):
         super(PixelAwareAdaptiveBottleneck, self).__init__()
         if norm_layer is None:
             norm_layer = nn.BatchNorm2d
@@ -98,18 +99,24 @@ class DataSetAwareAdaptiveBottleneck(nn.Module):
     expansion = 4
 
     def __init__(self, inplanes, planes, stride=1, downsample=None, groups=1,
-                 base_width=64, norm_layer=None, input_size=(224,224)):
+                 base_width=64, norm_layer=None, input_size=(224, 224)):
         super(DataSetAwareAdaptiveBottleneck, self).__init__()
         if norm_layer is None:
             norm_layer = nn.BatchNorm2d
         width = int(planes * (base_width / 64.)) * groups
         H, W = input_size
-        # Both self.conv2 and self.downsample layers downsample the input when stride != 1
-        self.conv1 = conv1x1(inplanes, width)
+        self.H, self.W = H, W
+        if stride == 1:
+            self.H, self.W = H, W
+        else:
+            self.H, self.W = H//2, W//2
+        # Both self.conv1 and self.downsample layers downsample the input when stride != 1
+        # which is a little different
+        self.conv1 = conv1x1(inplanes, width, stride=stride)
         self.bn1 = norm_layer(width)
-        self.conv2 = conv3x3(width, width, stride, groups)
+        self.conv2 = AdaptiveConv(width, width, stride=1, groups=groups,size=(self.H, self.W))
         self.bn2 = norm_layer(width)
-        self.conv3 = AdaptiveConv(width, planes * self.expansion)
+        self.conv3 = conv1x1(width, planes * self.expansion)
         self.bn3 = norm_layer(planes * self.expansion)
         self.relu = nn.ReLU(inplace=True)
         self.downsample = downsample
@@ -121,6 +128,8 @@ class DataSetAwareAdaptiveBottleneck(nn.Module):
         out = self.conv1(x)
         out = self.bn1(out)
         out = self.relu(out)
+        _,_,h,w = out.size()
+        assert self.H == h and self.W == w
 
         out = self.conv2(out)
         out = self.bn2(out)
@@ -140,18 +149,39 @@ class DataSetAwareAdaptiveBottleneck(nn.Module):
 
 class AdaptiveConv(nn.Module):
     def __init__(self, in_channels, out_channels, stride=1, padding=1, dilation=1,
-                 groups=1, bias=False):
+                 groups=1, bias=False, size=(224, 224)):
         super(AdaptiveConv, self).__init__()
 
-        self.conv3x3 = nn.Conv2d(in_channels, out_channels,3, stride, padding, dilation,groups, bias)
-        self.conv1x1 = nn.Conv1d(in_channels, out_channels,1, stride, padding, dilation,groups, bias)
+        self.conv3x3 = nn.Conv2d(in_channels, out_channels,3, stride, padding=1, dilation=dilation,groups=groups, bias=bias)
+        self.conv1x1 = nn.Conv2d(in_channels, out_channels,1, stride, padding=0, dilation=dilation,groups=groups, bias=bias)
         self.gap = nn.AdaptiveAvgPool2d(1)
         self.fc1 = nn.Conv2d(in_channels, out_channels, kernel_size=1)
         self.fc2 = nn.Conv2d(out_channels, out_channels, kernel_size=1)
+        self.size = size
+        self.w = nn.Parameter(torch.ones(3, 1, self.size[0], self.size[1]))
+        self.softmax = nn.Softmax()
+        self.relu = nn.ReLU(inplace=True)
 
     def forward(self, x):
-        pass
+        _, _, h, w = x.size()
 
+        weight = self.softmax(self.w)
+        w1 = weight[0, :, :, :]
+        w2 = weight[1, :, :, :]
+        w3 = weight[2, :, :, :]
+
+        x1 = self.conv3x3(x) # con3x3
+        x2 = self.conv1x1(x) # self
+
+        size = x1.size()[2:] # gap
+        gap = self.gap(x1)
+        gap = self.relu(self.fc1(gap))
+        gap = self.fc2(gap)
+        gap = F.upsample(gap, size=size, mode="bilinear", align_corners=True)
+
+        x = w1 * x1 + w2 * x2 + w3 * gap
+
+        return x
 
 class ResNet(nn.Module):
     def __init__(self, block, layers, num_classes=1000, zero_init_residual=False,
@@ -210,11 +240,16 @@ class ResNet(nn.Module):
 
         layers = []
         layers.append(block(self.inplanes, planes, stride, downsample, self.groups,
-                            self.base_width, norm_layer))
+                            self.base_width, norm_layer, input_size))
         self.inplanes = planes * block.expansion
         for _ in range(1, blocks):
-            layers.append(block(self.inplanes, planes, groups=self.groups,
-                                base_width=self.base_width, norm_layer=norm_layer))
+            if stride !=1:
+                layers.append(block(self.inplanes, planes, groups=self.groups,
+                                base_width=self.base_width, norm_layer=norm_layer,
+                                    input_size=(input_size[0]//2, input_size[1]//2)))
+            else:
+                layers.append(block(self.inplanes, planes, groups=self.groups,
+                                base_width=self.base_width, norm_layer=norm_layer, input_size=input_size))
 
         return nn.Sequential(*layers)
 
@@ -231,7 +266,6 @@ class ResNet(nn.Module):
         x = self.layer3(x)
         # print(x.size())
         x = self.layer4(x)
-        # print(x.size())
         x = self.avgpool(x)
         x = x.view(x.size(0), -1)
         x = self.fc(x)
@@ -240,7 +274,7 @@ class ResNet(nn.Module):
 
 
 
-def resnet50(pretrained=False, **kwargs):
+def PixelAwareResnet50(pretrained=False, **kwargs):
     """Constructs a ResNet-50 model.
 
     Args:
@@ -250,7 +284,7 @@ def resnet50(pretrained=False, **kwargs):
     return model
 
 
-def resnet101(pretrained=False, **kwargs):
+def PixelAwareResnet101(pretrained=False, **kwargs):
     """Constructs a ResNet-101 model.
 
     Args:
@@ -260,7 +294,7 @@ def resnet101(pretrained=False, **kwargs):
     return model
 
 
-def resnet152(pretrained=False, **kwargs):
+def PixelAwareResnet152(pretrained=False, **kwargs):
     """Constructs a ResNet-152 model.
 
     Args:
@@ -270,8 +304,37 @@ def resnet152(pretrained=False, **kwargs):
     return model
 
 
+def DataSetAwareResnet50(pretrained=False, **kwargs):
+    """Constructs a ResNet-50 model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet
+    """
+    model = ResNet(DataSetAwareAdaptiveBottleneck, [3, 4, 6, 3], **kwargs)
+    return model
+
+
+def DataSetAwareResnet101(pretrained=False, **kwargs):
+    """Constructs a ResNet-50 model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet
+    """
+    model = ResNet(DataSetAwareAdaptiveBottleneck, [3, 4, 23, 3], **kwargs)
+    return model
+
+def DataSetAwareResnet152(pretrained=False, **kwargs):
+    """Constructs a ResNet-50 model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet
+    """
+    model = ResNet(DataSetAwareAdaptiveBottleneck, [3, 4, 23, 3], **kwargs)
+    return model
+
+
 if __name__ == '__main__':
-    model = resnet50().cuda()
-    i = torch.Tensor(1, 3, 224, 224).cuda()
+    model = DataSetAwareResnet50().cuda()
+    i = torch.Tensor(2, 3, 224, 224).cuda()
     y = model(i)
     print(y.size())
