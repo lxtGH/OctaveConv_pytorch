@@ -11,7 +11,6 @@
 1. Add more convolution operator (Res2Net, Adaptive-Convolution)
 2. Train on Cifar/ImageNet
 
-
 ### Usage
 
 ```python
