@@ -177,7 +177,8 @@ class AdaptiveConv(nn.Module):
         gap = self.gap(x1)
         gap = self.relu(self.fc1(gap))
         gap = self.fc2(gap)
-        gap = F.upsample(gap, size=size, mode="bilinear", align_corners=True)
+        # gap = F.upsample(gap, size=size, mode="bilinear", align_corners=True)
+        gap = F.upsample(gap,size=size,mode="nearest")
 
         x = w1 * x1 + w2 * x2 + w3 * gap
 
@@ -323,6 +324,7 @@ def DataSetAwareResnet101(pretrained=False, **kwargs):
     model = ResNet(DataSetAwareAdaptiveBottleneck, [3, 4, 23, 3], **kwargs)
     return model
 
+
 def DataSetAwareResnet152(pretrained=False, **kwargs):
     """Constructs a ResNet-50 model.
 
@@ -334,7 +336,7 @@ def DataSetAwareResnet152(pretrained=False, **kwargs):
 
 
 if __name__ == '__main__':
-    model = DataSetAwareResnet50().cuda()
+    model = PixelAwareResnet152().cuda()
     i = torch.Tensor(2, 3, 224, 224).cuda()
     y = model(i)
     print(y.size())

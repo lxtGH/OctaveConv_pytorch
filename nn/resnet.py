@@ -168,7 +168,6 @@ class ResNet(nn.Module):
         x = self.layer2(x)
         x = self.layer3(x)
         x = self.layer4(x)
-
         x = self.avgpool(x)
         x = x.view(x.size(0), -1)
         x = self.fc(x)
@@ -248,3 +247,19 @@ def resnext101_32x8d(pretrained=False, **kwargs):
     # if pretrained:
     #     model.load_state_dict(model_zoo.load_url(model_urls['resnext101_32x8d']))
     return model
+
+if __name__ == '__main__':
+    import torch
+    model = resnet50().cuda()
+    i = torch.Tensor(1, 3, 256, 256).cuda()
+    y = model(i)
+    print(y.size())
+
+    """
+    layer output size:
+    torch.Size([1, 256, 64, 64])
+    torch.Size([1, 512, 32, 32])
+    torch.Size([1, 1024, 16, 16])
+    torch.Size([1, 2048, 8, 8])
+    torch.Size([1, 1000])
+    """

@@ -272,7 +272,6 @@ class OCtaveResNet(nn.Module):
         x_h, x_l = self.layer2((x_h,x_l))
         x_h, x_l = self.layer3((x_h,x_l))
         x_h = self.layer4((x_h,x_l))
-
         x = self.avgpool(x_h)
         x = x.view(x.size(0), -1)
         x = self.fc(x)
@@ -316,3 +315,11 @@ if __name__ == '__main__':
     i = torch.Tensor(1,3,256,256).cuda()
     y= model(i)
     print(y.size())
+    """
+    layer output size: 
+    torch.Size([1, 128, 64, 64])
+    torch.Size([1, 256, 32, 32])
+    torch.Size([1, 1024, 16, 16])
+    torch.Size([1, 2048, 8, 8])
+    torch.Size([1, 1000])   
+    """
