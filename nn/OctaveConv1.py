@@ -39,7 +39,7 @@ class OctaveConv(nn.Module):
             X_h, X_l = self.h2g_pool(X_h), self.h2g_pool(X_l)
 
         X_h2l = self.h2g_pool(X_h)
-        X_l2h = F.upsample(X_l,scale_factor=2, **self.up_kwargs)
+
 
         end_h_x = int(self.in_channels*(1- self.alpha_in))
         end_h_y = int(self.out_channels*(1- self.alpha_out))
@@ -53,8 +53,10 @@ class OctaveConv(nn.Module):
         X_h2l = F.conv2d(X_h2l, self.weights[end_h_y:, 0: end_h_x, :,:], self.bias[end_h_y:], 1,
                         self.padding, self.dilation, self.groups)
 
-        X_l2h = F.conv2d(X_l2h, self.weights[0:end_h_y, end_h_x:, :,:], self.bias[0:end_h_y], 1,
+        X_l2h = F.conv2d(X_l, self.weights[0:end_h_y, end_h_x:, :,:], self.bias[0:end_h_y], 1,
                         self.padding, self.dilation, self.groups)
+
+        X_l2h = F.upsample(X_l2h, scale_factor=2, **self.up_kwargs)
 
         X_h = X_h2h + X_l2h
         X_l = X_l2l + X_h2l
@@ -133,16 +135,15 @@ class LastOctaveConv(nn.Module):
         if self.stride ==2:
             X_h, X_l = self.h2g_pool(X_h), self.h2g_pool(X_l)
 
-        X_l2h = F.upsample(X_l,scale_factor=2, **self.up_kwargs)
-
         end_h_x = int(self.in_channels*(1- self.alpha_in))
         end_h_y = int(self.out_channels*(1- self.alpha_out))
 
         X_h2h = F.conv2d(X_h, self.weights[0:end_h_y, 0:end_h_x, :,:], self.bias[:end_h_y], 1,
                         self.padding, self.dilation, self.groups)
 
-        X_l2h = F.conv2d(X_l2h, self.weights[0:end_h_y, end_h_x:, :,:], self.bias[:end_h_y], 1,
+        X_l2h = F.conv2d(X_l, self.weights[0:end_h_y, end_h_x:, :,:], self.bias[:end_h_y], 1,
                         self.padding, self.dilation, self.groups)
+        X_l2h = F.upsample(X_l2h, scale_factor=2, **self.up_kwargs)
 
         X_h = X_h2h + X_l2h
 

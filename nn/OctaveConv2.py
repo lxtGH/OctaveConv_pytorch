@@ -35,12 +35,12 @@ class OctaveConv(nn.Module):
         X_h2l = self.h2g_pool(X_h)
 
         X_h2h = self.h2h(X_h)
-        X_l2h = self.l2h(X_l2h)
+        X_l2h = self.l2h(X_l)
 
         X_l2l = self.l2l(X_l)
         X_h2l = self.h2l(X_h2l)
         
-        X_l2h = self.upsample(X_l)
+        X_l2h = self.upsample(X_l2h)
         X_h = X_l2h + X_h2h
         X_l = X_h2l + X_l2l
 

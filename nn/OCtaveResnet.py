@@ -311,7 +311,7 @@ def resnet152(pretrained=False, **kwargs):
 
 
 if __name__ == '__main__':
-    model = resnet152().cuda()
+    model = resnet50().cuda()
     print(model)
     i = torch.Tensor(1,3,256,256).cuda()
     y= model(i)
