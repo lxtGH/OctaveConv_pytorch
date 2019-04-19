@@ -38,7 +38,7 @@ class PixelAwareAdaptiveBottleneck(nn.Module):
         self.conv2_3x3 = conv3x3(width, width, stride, groups)
         self.bn2 = norm_layer(width)
         self.gap = nn.AdaptiveAvgPool2d(1)
-        self.fc1 = nn.Conv2d(width,width,kernel_size=1)
+        self.fc1 = nn.Conv2d(inplanes,width,kernel_size=1)
         self.fc2 = nn.Conv2d(width,width,kernel_size=1)
 
         self.fusion_conv1 = nn.Conv2d(width*2,width,1)
@@ -64,7 +64,7 @@ class PixelAwareAdaptiveBottleneck(nn.Module):
 
         # gap
         size = out_conv3x3.size()[2:]
-        gap = self.gap(out_conv3x3)
+        gap = self.gap(x)
         gap = self.relu(self.fc1(gap))
         gap = self.fc2(gap)
         gap = F.upsample(gap, size=size,mode="bilinear", align_corners=True)
@@ -174,7 +174,7 @@ class AdaptiveConv(nn.Module):
         x2 = self.conv1x1(x) # self
 
         size = x1.size()[2:] # gap
-        gap = self.gap(x1)
+        gap = self.gap(x)
         gap = self.relu(self.fc1(gap))
         gap = self.fc2(gap)
         # gap = F.upsample(gap, size=size, mode="bilinear", align_corners=True)
@@ -336,7 +336,7 @@ def DataSetAwareResnet152(pretrained=False, **kwargs):
 
 
 if __name__ == '__main__':
-    model = PixelAwareResnet152().cuda()
+    model = DataSetAwareResnet50().cuda()
     i = torch.Tensor(2, 3, 224, 224).cuda()
     y = model(i)
     print(y.size())
