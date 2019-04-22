@@ -149,7 +149,7 @@ class DataSetAwareAdaptiveBottleneck(nn.Module):
 
 class AdaptiveConv(nn.Module):
     def __init__(self, in_channels, out_channels, stride=1, padding=1, dilation=1,
-                 groups=1, bias=False, size=(224, 224)):
+                 groups=1, bias=False, size=(256, 256)):
         super(AdaptiveConv, self).__init__()
 
         self.conv3x3 = nn.Conv2d(in_channels, out_channels,3, stride, padding=1, dilation=dilation,groups=groups, bias=bias)
@@ -186,7 +186,7 @@ class AdaptiveConv(nn.Module):
 
 class ResNet(nn.Module):
     def __init__(self, block, layers, num_classes=1000, zero_init_residual=False,
-                 groups=1, width_per_group=64, norm_layer=None, input_size=(224,224)):
+                 groups=1, width_per_group=64, norm_layer=None, input_size=(256,256)):
         super(ResNet, self).__init__()
         if norm_layer is None:
             norm_layer = nn.BatchNorm2d
@@ -337,6 +337,6 @@ def DataSetAwareResnet152(pretrained=False, **kwargs):
 
 if __name__ == '__main__':
     model = DataSetAwareResnet50().cuda()
-    i = torch.Tensor(2, 3, 224, 224).cuda()
+    i = torch.Tensor(1, 3, 256, 256).cuda()
     y = model(i)
     print(y.size())

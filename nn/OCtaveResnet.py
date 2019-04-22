@@ -4,8 +4,8 @@
 # Pytorch Implementation of Octave Resnet
 # original code from: https://github.com/pytorch/vision/blob/master/torchvision/models/resnet.py
 import torch.nn as nn
-# from nn.OctaveConv1 import *
-from nn.OctaveConv2 import *
+from nn.OctaveConv1 import *
+# from nn.OctaveConv2 import *
 
 
 def conv3x3(in_planes, out_planes, stride=1, groups=1):

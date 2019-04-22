@@ -16,7 +16,6 @@
 1. add Res2Net bolock with SE-layer (done)
 2. add Adaptive-Convolution: both pixel-aware and dataset-aware (done)
 3. add HetConv(optional): if I have time :)  
-3. Train on Cifar () 
 4. Train on Imagenet (): Who can help me train this repo on Imagenet
 ### Usage
    check model files under the nn floder.
