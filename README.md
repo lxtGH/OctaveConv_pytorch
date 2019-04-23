@@ -3,19 +3,15 @@
   This is **third parity** implementation(un-official) of Following Paper which are talked in [Recente_Convolution.pdf](https://github.com/lxtGH/OctaveConv_pytorch/blob/master/Recent_Convolution.pdf):
   1. Drop an Octave: Reducing Spatial Redundancy in Convolutional Neural Networks with Octave Convolution.
   [paper](https://arxiv.org/pdf/1904.05049.pdf)
-  
   ![](fig/octave_conv.png)
   2. Adaptively Connected Neural Networks.(CVPR 2019)
   [paper](https://arxiv.org/abs/1904.03579)
-  
   ![](fig/adaptive_conv.png)
   3. Res2net:A New Multi-scale Backbone Architecture
   [paper](https://arxiv.org/abs/1904.01169)
-  
   ![](fig/res2net.png)
   4. ScaleNet:Data-Driven Neuron Allocation for Scale Aggregation Networks 
   [paper](https://arxiv.org/pdf/1904.09460.pdf)
-  
   ![](fig/sablock.png)
 ## Plan
 1. add Res2Net bolock with SE-layer (done)
