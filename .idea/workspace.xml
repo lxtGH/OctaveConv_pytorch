@@ -5,10 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47e1832e-d3f5-4aad-b2e0-4a1c97017455" name="Default" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_imagenet.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nn/OCtaveResnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/nn/OCtaveResnet.py" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/OctaveConv_pytorch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/OctaveConv_pytorch.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nn/AdaptiveConvResnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/nn/AdaptiveConvResnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nn/OCtaveResnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/nn/OCtaveResnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_speed.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_speed.py" afterDir="false" />
+>>>>>>> 9a65ffe61e465462bba45e091ae1f9dff4ea9bbf
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,13 +29,13 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/OctaveConv_pytorch$OctaveConv2.coverage" NAME="OctaveConv2 Coverage Results" MODIFIED="1555582894614" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/nn" />
-    <SUITE FILE_PATH="coverage/OctaveConv_pytorch$test_speed.coverage" NAME="test_speed Coverage Results" MODIFIED="1555593960112" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/OctaveConv_pytorch$test_speed.coverage" NAME="test_speed Coverage Results" MODIFIED="1555917148311" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/OctaveConv_pytorch$res2net.coverage" NAME="res2net Coverage Results" MODIFIED="1555478977176" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/nn" />
     <SUITE FILE_PATH="coverage/OctaveConv_pytorch$resnet.coverage" NAME="resnet Coverage Results" MODIFIED="1555584573762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/nn" />
     <SUITE FILE_PATH="coverage/OctaveConv_pytorch$OctaveConv.coverage" NAME="OctaveConv Coverage Results" MODIFIED="1555583078369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/nn" />
     <SUITE FILE_PATH="coverage/OctaveConv_pytorch$OCtaveResnet.coverage" NAME="OCtaveResnet Coverage Results" MODIFIED="1555674290441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/nn" />
     <SUITE FILE_PATH="coverage/OctaveConv_pytorch$AdaptiveConv.coverage" NAME="AdaptiveConv Coverage Results" MODIFIED="1555505424030" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/nn" />
-    <SUITE FILE_PATH="coverage/OctaveConv_pytorch$AdaptiveConvResnet.coverage" NAME="AdaptiveConvResnet Coverage Results" MODIFIED="1555667745755" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/nn" />
+    <SUITE FILE_PATH="coverage/OctaveConv_pytorch$AdaptiveConvResnet.coverage" NAME="AdaptiveConvResnet Coverage Results" MODIFIED="1555917082723" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/nn" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -46,8 +56,13 @@
       <file leaf-file-name="OctaveConv1.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nn/OctaveConv1.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="550">
               <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+=======
+            <state relative-caret-position="-285">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
+>>>>>>> 9a65ffe61e465462bba45e091ae1f9dff4ea9bbf
             </state>
           </provider>
         </entry>
@@ -55,7 +70,11 @@
       <file leaf-file-name="OctaveConv2.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nn/OctaveConv2.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="1408">
+=======
+            <state relative-caret-position="645">
+>>>>>>> 9a65ffe61e465462bba45e091ae1f9dff4ea9bbf
               <caret line="65" selection-start-line="65" selection-end-line="65" />
               <folding>
                 <element signature="e#207#219#0" expanded="true" />
@@ -67,7 +86,11 @@
       <file leaf-file-name="resnet.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nn/resnet.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="5412">
+=======
+            <state relative-caret-position="645">
+>>>>>>> 9a65ffe61e465462bba45e091ae1f9dff4ea9bbf
               <caret line="247" column="40" selection-start-line="247" selection-start-column="39" selection-end-line="247" selection-end-column="40" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
@@ -76,11 +99,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_speed.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test_speed.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test_speed.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="462">
               <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+=======
+            <state relative-caret-position="513">
+              <caret line="27" column="21" lean-forward="true" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-209">
+              <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+>>>>>>> 9a65ffe61e465462bba45e091ae1f9dff4ea9bbf
             </state>
           </provider>
         </entry>
@@ -88,8 +125,13 @@
       <file leaf-file-name="OCtaveResnet.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nn/OCtaveResnet.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="6820">
               <caret line="312" column="32" selection-start-line="312" selection-start-column="21" selection-end-line="312" selection-end-column="32" />
+=======
+            <state relative-caret-position="-5335">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+>>>>>>> 9a65ffe61e465462bba45e091ae1f9dff4ea9bbf
               <folding>
                 <element signature="e#225#246#0" expanded="true" />
               </folding>
@@ -97,11 +139,19 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="main_imagenet.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main_imagenet.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
               <caret line="15" column="35" lean-forward="true" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+=======
+      <file leaf-file-name="AdaptiveConvResnet.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nn/AdaptiveConvResnet.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4845">
+              <caret line="335" lean-forward="true" selection-start-line="335" selection-end-line="335" />
+>>>>>>> 9a65ffe61e465462bba45e091ae1f9dff4ea9bbf
             </state>
           </provider>
         </entry>
@@ -109,8 +159,13 @@
       <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="220">
               <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+=======
+            <state relative-caret-position="95">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+>>>>>>> 9a65ffe61e465462bba45e091ae1f9dff4ea9bbf
               <folding>
                 <element signature="e#222#231#0" expanded="true" />
               </folding>
@@ -118,6 +173,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="AdaptiveConvResnet.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nn/AdaptiveConvResnet.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -135,6 +191,13 @@
               <folding>
                 <element signature="e#221#233#0" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+>>>>>>> 9a65ffe61e465462bba45e091ae1f9dff4ea9bbf
             </state>
           </provider>
         </entry>
@@ -174,16 +237,20 @@
         <option value="$PROJECT_DIR$/LICENSE" />
         <option value="$PROJECT_DIR$/nn/res2net.py" />
         <option value="$PROJECT_DIR$/nn/AdaptiveConv.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/nn/OctaveConv2.py" />
         <option value="$PROJECT_DIR$/nn/OctaveConv1.py" />
         <option value="$PROJECT_DIR$/nn/resnet.py" />
         <option value="$PROJECT_DIR$/nn/modelutils.py" />
-        <option value="$PROJECT_DIR$/test_speed.py" />
+        <option value="$PROJECT_DIR$/nn/OCtaveResnet.py" />
         <option value="$PROJECT_DIR$/nn/AdaptiveConvResnet.py" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/nn/OCtaveResnet.py" />
         <option value="$PROJECT_DIR$/main_cifar.py" />
         <option value="$PROJECT_DIR$/utils.py" />
+=======
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/test_speed.py" />
+>>>>>>> 9a65ffe61e465462bba45e091ae1f9dff4ea9bbf
       </list>
     </option>
   </component>
@@ -216,6 +283,14 @@
               <item name="OctaveConv_pytorch" type="b2602c69:ProjectViewProjectNode" />
               <item name="OctaveConv_pytorch" type="462c0819:PsiDirectoryNode" />
             </path>
+<<<<<<< HEAD
+=======
+            <path>
+              <item name="OctaveConv_pytorch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OctaveConv_pytorch" type="462c0819:PsiDirectoryNode" />
+              <item name="nn" type="462c0819:PsiDirectoryNode" />
+            </path>
+>>>>>>> 9a65ffe61e465462bba45e091ae1f9dff4ea9bbf
           </expand>
           <select />
         </subPane>
@@ -248,7 +323,11 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="RunManager" selected="Python.OCtaveResnet">
+=======
+  <component name="RunManager" selected="Python.test_speed">
+>>>>>>> 9a65ffe61e465462bba45e091ae1f9dff4ea9bbf
     <configuration name="AdaptiveConvResnet" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="OctaveConv_pytorch" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -353,9 +432,15 @@
     </list>
     <recent_temporary>
       <list>
+<<<<<<< HEAD
         <item itemvalue="Python.OCtaveResnet" />
         <item itemvalue="Python.AdaptiveConvResnet" />
         <item itemvalue="Python.test_speed" />
+=======
+        <item itemvalue="Python.test_speed" />
+        <item itemvalue="Python.AdaptiveConvResnet" />
+        <item itemvalue="Python.OCtaveResnet" />
+>>>>>>> 9a65ffe61e465462bba45e091ae1f9dff4ea9bbf
         <item itemvalue="Python.resnet" />
         <item itemvalue="Python.OctaveConv" />
       </list>
@@ -375,17 +460,25 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="57" y="-4" width="2503" height="1444" extended-state="6" />
+    <frame x="65" y="-6" width="1855" height="1086" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="12" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="2" show_stripe_button="false" />
+<<<<<<< HEAD
+=======
+      <window_info anchor="bottom" id="Run" order="8" visible="true" weight="0.24102564" />
+>>>>>>> 9a65ffe61e465462bba45e091ae1f9dff4ea9bbf
       <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Python Console" order="3" />
       <window_info anchor="bottom" id="Run" order="8" weight="0.24125093" />
       <window_info anchor="bottom" id="Terminal" order="4" />
+<<<<<<< HEAD
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.24970035" />
+=======
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.24959569" />
+>>>>>>> 9a65ffe61e465462bba45e091ae1f9dff4ea9bbf
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="2" weight="0.32960448" />
       <window_info anchor="right" id="SciView" order="0" weight="0.32960448" />
@@ -394,12 +487,18 @@
       <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="File Transfer" order="13" visible="true" weight="0.3298585" />
+=======
+>>>>>>> 9a65ffe61e465462bba45e091ae1f9dff4ea9bbf
       <window_info anchor="bottom" id="Find" order="7" />
+      <window_info anchor="bottom" id="File Transfer" order="11" visible="true" weight="0.18488254" />
+      <window_info anchor="bottom" id="Message" order="6" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -606,6 +705,168 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nn/OctaveConv1.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nn/OctaveConv2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1216">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
+          <folding>
+            <element signature="e#207#219#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nn/resnet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4674">
+          <caret line="247" column="40" selection-start-line="247" selection-start-column="39" selection-end-line="247" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_speed.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nn/OCtaveResnet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5890">
+          <caret line="312" column="29" selection-start-line="312" selection-start-column="29" selection-end-line="312" selection-end-column="29" />
+          <folding>
+            <element signature="e#225#246#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nn/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nn/res2net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#221#233#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor>
+            <js_state />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nn/AdaptiveConvResnet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6384">
+          <caret line="338" column="32" selection-start-line="338" selection-start-column="32" selection-end-line="338" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nn/OctaveConv1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="27" column="23" lean-forward="true" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nn/OctaveConv2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1216">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
+          <folding>
+            <element signature="e#207#219#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nn/resnet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4674">
+          <caret line="247" column="40" selection-start-line="247" selection-start-column="39" selection-end-line="247" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_speed.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="16" lean-forward="true" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nn/OCtaveResnet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5890">
+          <caret line="312" column="29" lean-forward="true" selection-start-line="312" selection-start-column="29" selection-end-line="312" selection-end-column="29" />
+          <folding>
+            <element signature="e#225#246#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nn/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nn/res2net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#221#233#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor>
+            <js_state />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nn/AdaptiveConvResnet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6384">
+          <caret line="338" column="32" selection-start-line="338" selection-start-column="32" selection-end-line="338" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nn/OctaveConv1.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3168">
           <caret line="146" lean-forward="true" selection-start-line="146" selection-end-line="146" />
         </state>
@@ -665,16 +926,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="264">
-            <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
@@ -731,23 +983,33 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/nn/modelutils.py" />
+    <entry file="file://$PROJECT_DIR$/nn/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+>>>>>>> 9a65ffe61e465462bba45e091ae1f9dff4ea9bbf
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="264">
-            <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+          <first_editor relative-caret-position="342">
+            <caret line="18" selection-start-line="18" selection-end-line="18" />
           </first_editor>
-          <second_editor />
+          <second_editor>
+            <js_state />
+          </second_editor>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/nn/AdaptiveConvResnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="4845">
+          <caret line="335" lean-forward="true" selection-start-line="335" selection-end-line="335" />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/nn/modelutils.py" />
     <entry file="file://$PROJECT_DIR$/nn/resnet.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -756,45 +1018,92 @@
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-209">
+          <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nn/res2net.py">
+    <entry file="file://$PROJECT_DIR$/nn/OctaveConv1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="e#221#233#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_speed.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+        <state relative-caret-position="-285">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+>>>>>>> 9a65ffe61e465462bba45e091ae1f9dff4ea9bbf
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nn/OctaveConv2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1408">
+<<<<<<< HEAD
+        <state relative-caret-position="110">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+=======
+        <state relative-caret-position="645">
           <caret line="65" selection-start-line="65" selection-end-line="65" />
+>>>>>>> 9a65ffe61e465462bba45e091ae1f9dff4ea9bbf
           <folding>
             <element signature="e#207#219#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nn/OctaveConv1.py">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+<<<<<<< HEAD
+        <state relative-caret-position="462">
+          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+=======
+        <state relative-caret-position="57">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nn/AdaptiveConvResnet.py">
+    <entry file="file://$PROJECT_DIR$/nn/resnet.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="247" column="40" selection-start-line="247" selection-start-column="39" selection-end-line="247" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+>>>>>>> 9a65ffe61e465462bba45e091ae1f9dff4ea9bbf
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nn/res2net.py">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="1408">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
+=======
+        <state relative-caret-position="95">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+>>>>>>> 9a65ffe61e465462bba45e091ae1f9dff4ea9bbf
+          <folding>
+            <element signature="e#221#233#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nn/OCtaveResnet.py">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="550">
+          <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+=======
+        <state relative-caret-position="-5335">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#225#246#0" expanded="true" />
+          </folding>
+>>>>>>> 9a65ffe61e465462bba45e091ae1f9dff4ea9bbf
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_speed.py">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="1122">
           <caret line="53" selection-start-line="53" selection-end-line="53" />
         </state>
@@ -825,6 +1134,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="15" column="35" lean-forward="true" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+=======
+        <state relative-caret-position="513">
+          <caret line="27" column="21" lean-forward="true" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+>>>>>>> 9a65ffe61e465462bba45e091ae1f9dff4ea9bbf
         </state>
       </provider>
     </entry>
