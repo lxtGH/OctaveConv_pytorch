@@ -167,7 +167,7 @@ class OctaveCBR(nn.Module):
 
 
 class OctaveCB(nn.Module):
-    def __init__(self, in_channels, out_channels, kernel_size=(3,3), alpha_in=0.5, alpha_out=0.5, stride=1, padding=0, dilation=1,
+    def __init__(self, in_channels, out_channels, kernel_size=(3,3), alpha_in=0.5, alpha_out=0.5, stride=1, padding=1, dilation=1,
                  groups=1, bias=False, up_kwargs=up_kwargs, norm_layer=nn.BatchNorm2d):
         super(OctaveCB, self).__init__()
         self.conv = OctaveConv(in_channels, out_channels, kernel_size, alpha_in, alpha_out, stride, padding, dilation,
