@@ -6,8 +6,9 @@
 import os
 import sys
 import time
-import torch
+import errno
 
+import torch
 import torch.nn as nn
 import torch.nn.init as init
 
@@ -25,6 +26,7 @@ def get_mean_and_std(dataset):
     mean.div_(len(dataset))
     std.div_(len(dataset))
     return mean, std
+
 
 def init_params(net):
     '''Init layer parameters.'''
@@ -48,6 +50,7 @@ term_width = int(term_width)
 TOTAL_BAR_LENGTH = 65.
 last_time = time.time()
 begin_time = last_time
+
 
 def progress_bar(current, total, msg=None):
     global last_time, begin_time
@@ -92,6 +95,7 @@ def progress_bar(current, total, msg=None):
         sys.stdout.write('\n')
     sys.stdout.flush()
 
+
 def format_time(seconds):
     days = int(seconds / 3600/24)
     seconds = seconds - days*3600*24
@@ -123,3 +127,50 @@ def format_time(seconds):
     if f == '':
         f = '0ms'
     return f
+
+
+def mkdir_p(path):
+    '''make dir if not exist'''
+    try:
+        os.makedirs(path)
+    except OSError as exc:  # Python >2.5
+        if exc.errno == errno.EEXIST and os.path.isdir(path):
+            pass
+        else:
+            raise
+
+
+def accuracy(output, target, topk=(1,)):
+    """Computes the precision@k for the specified values of k"""
+    maxk = max(topk)
+    batch_size = target.size(0)
+
+    _, pred = output.topk(maxk, 1, True, True)
+    pred = pred.t()
+    correct = pred.eq(target.view(1, -1).expand_as(pred))
+
+    res = []
+    for k in topk:
+        correct_k = correct[:k].view(-1).float().sum(0)
+        res.append(correct_k.mul_(100.0 / batch_size))
+    return res
+
+
+class AverageMeter(object):
+    """Computes and stores the average and current value
+       Imported from https://github.com/pytorch/examples/blob/master/imagenet/main.py#L247-L262
+    """
+    def __init__(self):
+        self.reset()
+
+    def reset(self):
+        self.val = 0
+        self.avg = 0
+        self.sum = 0
+        self.count = 0
+
+    def update(self, val, n=1):
+        self.val = val
+        self.sum += val * n
+        self.count += n
+        self.avg = self.sum / self.count

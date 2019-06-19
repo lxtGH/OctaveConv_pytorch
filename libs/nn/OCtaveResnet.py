@@ -4,7 +4,8 @@
 # Pytorch Implementation of Octave Resnet
 # original code from: https://github.com/pytorch/vision/blob/master/torchvision/models/resnet.py
 import torch.nn as nn
-from nn.OctaveConv1 import *
+
+
 # from nn.OctaveConv2 import *
 
 
@@ -271,6 +272,7 @@ class OCtaveResNet(nn.Module):
         x_h, x_l = self.layer1(x)
         x_h, x_l = self.layer2((x_h,x_l))
         x_h, x_l = self.layer3((x_h,x_l))
+        # print(x_h.size(), x_l.size())
         x_h = self.layer4((x_h,x_l))
         x = self.avgpool(x_h)
         x = x.view(x.size(0), -1)

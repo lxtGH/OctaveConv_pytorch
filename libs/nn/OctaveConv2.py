@@ -92,7 +92,6 @@ class LastOctaveConv(nn.Module):
         if self.stride ==2:
             X_h, X_l = self.h2g_pool(X_h), self.h2g_pool(X_l)
 
-        
         X_l2h = self.l2h(X_l)
         X_h2h = self.h2h(X_h)
         X_l2h = self.upsample(X_l2h)

@@ -337,8 +337,8 @@ def se_resnext101_32x8d(scale=4, **kwargs):
 
 
 if __name__ == '__main__':
-    # model = resnext101_32x8d().cuda()
-    model = se_resnet50().cuda()
+    model = resnext101_32x8d().cuda()
+    # model = se_resnet50().cuda()
     print(model)
     i = torch.Tensor(1,3,256,256).cuda()
     y= model(i)

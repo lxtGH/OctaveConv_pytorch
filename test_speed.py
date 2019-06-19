@@ -15,8 +15,7 @@ def predictImage(model):
 
 
 if __name__ == '__main__':
-    from nn.resnet import resnet50
-    from nn.AdaptiveConvResnet import PixelAwareResnet50
+    from libs.nn import PixelAwareResnet50
     model = PixelAwareResnet50().cuda()
     model.eval()
     predictImage(model)
