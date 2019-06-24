@@ -15,13 +15,12 @@ import torch.optim as optim
 import torch.utils.data as data
 import torchvision.transforms as transforms
 import torchvision.datasets as datasets
-import torchvision.models as models
 from PIL import ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 
 # import model here
-from libs.nn.res2net import se_resnet101
+from libs.nn.res2net import se_res2net101
 from libs.flops_counter import get_model_complexity_info
 
 
@@ -142,7 +141,6 @@ def main():
         ])),
         batch_size=args.test_batch, shuffle=True,
         num_workers=args.workers, pin_memory=True)
-
     # create model
     # if args.pretrained:
     #     print("=> using pre-trained model '{}'".format(args.arch))
@@ -155,12 +153,10 @@ def main():
     # else:
     #     print("=> creating model '{}'".format(args.arch))
     #     model = models.__dict__[args.arch]()
-    model = se_resnet101().cuda()
+    model = se_res2net101().cuda()
     flops, params = get_model_complexity_info(model, (224, 224), as_strings=False, print_per_layer_stat=False)
     print('Flops:  %.3f' % (flops / 1e9))
     print('Params: %.2fM' % (params / 1e6))
-
-
 
     model = torch.nn.DataParallel(model).cuda()
 

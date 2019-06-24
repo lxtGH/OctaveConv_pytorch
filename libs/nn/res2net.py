@@ -8,6 +8,10 @@
 import torch
 import torch.nn as nn
 
+__all__ = ['res2net50', 'res2net101', 'res2net152', 'res2next50_32x4d',
+           'res2next101_32x8d','se_res2net50','se_res2net101','se_res2net152',
+           'se_res2next50_32x4d','se_res2next101_32x8d']
+
 
 def conv3x3(in_planes, out_planes, stride=1, groups=1):
     """3x3 convolution with padding"""
@@ -71,7 +75,6 @@ class SELayer(nn.Module):
         y = self.avg_pool(x).view(b, c)
         y = self.fc(y).view(b, c, 1, 1)
         return x * y.expand_as(x)
-
 
 
 class Res2NetBlockSE(nn.Module):
@@ -235,7 +238,7 @@ class ResNet(nn.Module):
         return x
 
 
-def resnet50(scale=4, **kwargs):
+def res2net50(scale=4, **kwargs):
     """Constructs a Res2Net-50 model.
 
     Args:
@@ -245,7 +248,7 @@ def resnet50(scale=4, **kwargs):
     return model
 
 
-def resnet101(scale=4, **kwargs):
+def res2net101(scale=4, **kwargs):
     """Constructs a Res2Net-101 model.
 
     Args:
@@ -255,7 +258,7 @@ def resnet101(scale=4, **kwargs):
     return model
 
 
-def resnet152(scale=4, **kwargs):
+def res2net152(scale=4, **kwargs):
     """Constructs a Res2Net-152 model.
 
     Args:
@@ -265,7 +268,7 @@ def resnet152(scale=4, **kwargs):
     return model
 
 
-def resnext50_32x4d(scale=4, **kwargs):
+def res2next50_32x4d(scale=4, **kwargs):
     """Constructs a Res2NeXt50_32x4d model.
 
     Args:
@@ -275,7 +278,7 @@ def resnext50_32x4d(scale=4, **kwargs):
     return model
 
 
-def resnext101_32x8d(scale=4, **kwargs):
+def res2next101_32x8d(scale=4, **kwargs):
     """Constructs a Res2NeXt101_32x8d model.
 
     Args:
@@ -286,7 +289,7 @@ def resnext101_32x8d(scale=4, **kwargs):
     return model
 
 
-def se_resnet50(scale=4, **kwargs):
+def se_res2net50(scale=4, **kwargs):
     """Constructs a Res2Net-152 model.
 
     Args:
@@ -296,7 +299,7 @@ def se_resnet50(scale=4, **kwargs):
     return model
 
 
-def se_resnet101(scale=4, **kwargs):
+def se_res2net101(scale=4, **kwargs):
     """Constructs a Res2Net-152 model.
 
     Args:
@@ -306,7 +309,7 @@ def se_resnet101(scale=4, **kwargs):
     return model
 
 
-def se_resnet152(scale=4, **kwargs):
+def se_res2net152(scale=4, **kwargs):
     """Constructs a Res2Net-152 model.
 
     Args:
@@ -315,7 +318,7 @@ def se_resnet152(scale=4, **kwargs):
     model = ResNet(Res2NetBottleneck, [3, 8, 36, 3], scale=scale, se=True, **kwargs)
     return model
 
-def se_resnext50_32x4d(scale=4, **kwargs):
+def se_res2next50_32x4d(scale=4, **kwargs):
     """Constructs a Res2NeXt50_32x4d model.
 
     Args:
@@ -325,7 +328,7 @@ def se_resnext50_32x4d(scale=4, **kwargs):
     return model
 
 
-def se_resnext101_32x8d(scale=4, **kwargs):
+def se_res2next101_32x8d(scale=4, **kwargs):
     """Constructs a Res2NeXt101_32x8d model.
 
     Args:
@@ -337,7 +340,7 @@ def se_resnext101_32x8d(scale=4, **kwargs):
 
 
 if __name__ == '__main__':
-    model = resnext101_32x8d().cuda()
+    model = res2next101_32x8d().cuda()
     # model = se_resnet50().cuda()
     print(model)
     i = torch.Tensor(1,3,256,256).cuda()

@@ -1,7 +1,50 @@
 import torch.nn as nn
+from torch.nn import Parameter
 
-__all__ = ['ResNet', 'resnet18', 'resnet34', 'resnet50', 'resnet101',
-           'resnet152', 'resnext50_32x4d', 'resnext101_32x8d']
+__all__ = [ 'srm_resnet18', 'srm_resnet34', 'srm_resnet50', 'srm_resnet101',
+           'srm_resnet152', 'srm_resnext50_32x4d', 'srm_resnext101_32x8d']
+
+
+class SRMLayer(nn.Module):
+    def __init__(self, channel):
+        super(SRMLayer, self).__init__()
+
+        self.cfc = Parameter(torch.Tensor(channel, 2))
+        self.cfc.data.fill_(0)
+
+        self.bn = nn.BatchNorm2d(channel)
+        self.activation = nn.Sigmoid()
+
+        setattr(self.cfc, 'srm_param', True)
+        setattr(self.bn.weight, 'srm_param', True)
+        setattr(self.bn.bias, 'srm_param', True)
+
+    def _style_pooling(self, x):
+        N, C, _, _ = x.size()
+
+        channel_mean = x.view(N, C, -1).mean(dim=2).view(N, C, -1)
+        channel_std = x.view(N, C, -1).std(dim=2).view(N, C, -1)
+
+        t = torch.cat((channel_mean, channel_std), dim=2)
+        return t
+
+    def _style_integration(self, t):
+        z = t * self.cfc[None, :, :]  # B x C x 2
+        z = torch.sum(z, dim=2)[:, :, None, None]  # B x C x 1 x 1
+
+        z_hat = self.bn(z)
+        g = self.activation(z_hat)
+
+        return g
+
+    def forward(self, x):
+        # B x C x 2
+        t = self._style_pooling(x)
+
+        # B x C x 1 x 1
+        g = self._style_integration(t)
+
+        return x * g
 
 
 def conv3x3(in_planes, out_planes, stride=1, groups=1):
@@ -33,6 +76,7 @@ class BasicBlock(nn.Module):
         self.bn2 = norm_layer(planes)
         self.downsample = downsample
         self.stride = stride
+        self.srm = SRMLayer(planes)
 
     def forward(self, x):
         identity = x
@@ -46,6 +90,8 @@ class BasicBlock(nn.Module):
 
         if self.downsample is not None:
             identity = self.downsample(x)
+
+        out = self.srm(out)
 
         out += identity
         out = self.relu(out)
@@ -73,6 +119,8 @@ class Bottleneck(nn.Module):
         self.downsample = downsample
         self.stride = stride
 
+        self.srm = SRMLayer(planes)
+
     def forward(self, x):
         identity = x
 
@@ -86,6 +134,8 @@ class Bottleneck(nn.Module):
 
         out = self.conv3(out)
         out = self.bn3(out)
+
+        out = self.srm(out)
 
         if self.downsample is not None:
             identity = self.downsample(x)
@@ -173,7 +223,7 @@ class ResNet(nn.Module):
         return x
 
 
-def resnet18(pretrained=False, **kwargs):
+def srm_resnet18(pretrained=False, **kwargs):
     """Constructs a ResNet-18 model.
 
     Args:
@@ -185,7 +235,7 @@ def resnet18(pretrained=False, **kwargs):
     return model
 
 
-def resnet34(pretrained=False, **kwargs):
+def srm_resnet34(pretrained=False, **kwargs):
     """Constructs a ResNet-34 model.
 
     Args:
@@ -197,7 +247,7 @@ def resnet34(pretrained=False, **kwargs):
     return model
 
 
-def resnet50(pretrained=False, **kwargs):
+def srm_resnet50(pretrained=False, **kwargs):
     """Constructs a ResNet-50 model.
 
     Args:
@@ -209,7 +259,7 @@ def resnet50(pretrained=False, **kwargs):
     return model
 
 
-def resnet101(pretrained=False, **kwargs):
+def srm_resnet101(pretrained=False, **kwargs):
     """Constructs a ResNet-101 model.
 
     Args:
@@ -221,7 +271,7 @@ def resnet101(pretrained=False, **kwargs):
     return model
 
 
-def resnet152(pretrained=False, **kwargs):
+def srm_resnet152(pretrained=False, **kwargs):
     """Constructs a ResNet-152 model.
 
     Args:
@@ -233,14 +283,14 @@ def resnet152(pretrained=False, **kwargs):
     return model
 
 
-def resnext50_32x4d(pretrained=False, **kwargs):
+def srm_resnext50_32x4d(pretrained=False, **kwargs):
     model = ResNet(Bottleneck, [3, 4, 6, 3], groups=32, width_per_group=4, **kwargs)
     # if pretrained:
     #     model.load_state_dict(model_zoo.load_url(model_urls['resnext50_32x4d']))
     return model
 
 
-def resnext101_32x8d(pretrained=False, **kwargs):
+def srm_resnext101_32x8d(pretrained=False, **kwargs):
     model = ResNet(Bottleneck, [3, 4, 23, 3], groups=32, width_per_group=8, **kwargs)
     # if pretrained:
     #     model.load_state_dict(model_zoo.load_url(model_urls['resnext101_32x8d']))
@@ -248,8 +298,8 @@ def resnext101_32x8d(pretrained=False, **kwargs):
 
 if __name__ == '__main__':
     import torch
-    model = resnet50().cuda()
-    i = torch.Tensor(1, 3, 256, 256).cuda()
+    model = srm_resnet18().cuda()
+    i = torch.Tensor(2, 3, 256, 256).cuda()
     y = model(i)
     print(y.size())
 
