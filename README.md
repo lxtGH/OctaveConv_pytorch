@@ -1,7 +1,7 @@
 # OctaveConv_pytorch
 ## Pytorch implementation of Octave convolution with other similar operation
   This is **third parity** implementation(un-official) of Following Paper which are talked in [Recente_Convolution.pdf](https://github.com/lxtGH/OctaveConv_pytorch/blob/master/Recent_Convolution.pdf):
-  1. Drop an Octave: Reducing Spatial Redundancy in Convolutional Neural Networks with Octave Convolution.
+  1. Drop an Octave: Reducing Spatial Redundancy in Convolutional Neural Networks with Octave Convolution(ICCV 2019).
   [paper](https://arxiv.org/pdf/1904.05049)
   ![](fig/octave_conv.png)
   2. Adaptively Connected Neural Networks.(CVPR 2019)
