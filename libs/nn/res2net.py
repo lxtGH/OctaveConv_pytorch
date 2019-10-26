@@ -54,7 +54,8 @@ class Res2NetBlock(nn.Module):
         for s in range(1, self.scale):
             layers.append(nn.Sequential(
                 conv3x3(ch_per_sub, ch_per_sub, stride, groups),
-                norm_layer(ch_per_sub), self.relu))
+                       norm_layer(ch_per_sub))
+         #       norm_layer(ch_per_sub), self.relu))
 
         return nn.Sequential(*layers)
 
@@ -109,7 +110,8 @@ class Res2NetBlockSE(nn.Module):
         for s in range(1, self.scale):
             layers.append(nn.Sequential(
                 conv3x3(ch_per_sub, ch_per_sub, stride, groups),
-                norm_layer(ch_per_sub), self.relu))
+                        norm_layer(ch_per_sub)))
+                #norm_layer(ch_per_sub), self.relu))
 
         return nn.Sequential(*layers)
 
