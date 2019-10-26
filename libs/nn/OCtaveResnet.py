@@ -5,8 +5,9 @@
 # original code from: https://github.com/pytorch/vision/blob/master/torchvision/models/resnet.py
 import torch.nn as nn
 
+__all__ = ['Octresnet50','Octresnet101']
 
-# from nn.OctaveConv2 import *
+from libs.nn.OctaveConv2 import *
 
 
 def conv3x3(in_planes, out_planes, stride=1, groups=1):
@@ -281,7 +282,7 @@ class OCtaveResNet(nn.Module):
         return x
 
 
-def resnet50(pretrained=False, **kwargs):
+def Octresnet50(pretrained=False, **kwargs):
     """Constructs a ResNet-50 model.
 
     Args:
@@ -291,7 +292,7 @@ def resnet50(pretrained=False, **kwargs):
     return model
 
 
-def resnet101(pretrained=False, **kwargs):
+def Octresnet101(pretrained=False, **kwargs):
     """Constructs a ResNet-101 model.
 
     Args:
@@ -301,7 +302,7 @@ def resnet101(pretrained=False, **kwargs):
     return model
 
 
-def resnet152(pretrained=False, **kwargs):
+def Octresnet152(pretrained=False, **kwargs):
     """Constructs a ResNet-152 model.
 
     Args:
@@ -312,7 +313,7 @@ def resnet152(pretrained=False, **kwargs):
 
 
 if __name__ == '__main__':
-    model = resnet50(num_classes=10).cuda()
+    model = Octresnet50(num_classes=10).cuda()
     print(model)
     i = torch.Tensor(1,3,256,256).cuda()
     y= model(i)

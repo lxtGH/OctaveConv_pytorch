@@ -1,76 +1,26 @@
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
-# Author: Xiangtai Li(lxtpku@pku.edu.cn)
-# Pytorch Implementation of GE-net:
-
-__all__ = [ 'ge_resnet50', 'ge_resnet101', 'ge_resnet152']
 
 
-
-class GELayerv1(nn.Module):
-    def __init__(self):
-        super(GELayerv1, self).__init__()
-        self.avg_pool = nn.AvgPool2d(kernel_size=(15, 15), stride=8)
-        self.sigmod = nn.Sigmoid()
+__all__ = ['se_resnet18', 'se_resnet34', 'se_resnet50', 'se_resnet101', 'se_resnet152']
 
 
-    def forward(self, x):
-        b, c, h, w = x.size()
-        res = x
-        y = self.avg_pool(x)
-        y = F.upsample(y,size=(h, w), mode="bilinear", align_corners=True)
-        y = y * x
-        return res + y
-
-
-class GELayerv2(nn.Module):
-    def __init__(self,):
-        super(GELayerv2, self).__init__()
+class SELayer(nn.Module):
+    def __init__(self, channel, reduction = 16):
+        super(SELayer, self).__init__()
         self.avg_pool = nn.AdaptiveAvgPool2d(1)
-        self.sigmod = nn.Sigmoid()
+        self.fc       = nn.Sequential(
+                        nn.Linear(channel, 10),
+                        nn.ReLU(inplace = True),
+                        nn.Linear(10, channel),
+                        nn.Sigmoid()
+                )
 
     def forward(self, x):
         b, c, _, _ = x.size()
-        res = x
-        y = self.avg_pool(x)
-        y = self.sigmod(y)
-        z = x * y
-        return res + z
-
-
-class GELayerv3(nn.Module):
-    def __init__(self, inplane):
-        super(GELayerv3, self).__init__()
-        self.dconv1 = nn.Sequential(
-            nn.Conv2d(inplane, inplane, kernel_size=3, groups=inplane, stride=2),
-            nn.BatchNorm2d(inplane),
-            nn.ReLU(inplace=False)
-        )
-        self.dconv2 = nn.Sequential(
-            nn.Conv2d(inplane, inplane, kernel_size=3, groups=inplane, stride=2),
-            nn.BatchNorm2d(inplane),
-            nn.ReLU(inplace=False)
-        )
-        self.dconv3 = nn.Sequential(
-            nn.Conv2d(inplane, inplane, kernel_size=3, groups=inplane, stride=2),
-            nn.BatchNorm2d(inplane),
-            nn.ReLU(inplace=False)
-        )
-        self.sigmoid_spatial = nn.Sigmoid()
-
-    def forward(self, x):
-        b, c, h, w = x.size()
-        res1 = x
-        res2 = x
-        x = self.dconv1(x)
-        x = self.dconv2(x)
-        x = self.dconv3(x)
-        x = F.upsample(x, size=(h, w), mode="bilinear", align_corners=True)
-        x = self.sigmoid_spatial(x)
-        res1 = res1 * x
-
-        return res2 + res1
+        y = self.avg_pool(x).view(b, c)
+        y = self.fc(y).view(b, c, 1, 1)
+        return x * y
 
 
 def conv3x3(in_planes, out_planes, stride=1):
@@ -96,7 +46,7 @@ class BasicBlock(nn.Module):
         self.bn2 = nn.BatchNorm2d(planes)
         self.downsample = downsample
         self.stride = stride
-        self.ge  = GELayerv2()
+        self.se  = SELayer(planes)
 
     def forward(self, x):
         identity = x
@@ -107,7 +57,7 @@ class BasicBlock(nn.Module):
 
         out = self.conv2(out)
         out = self.bn2(out)
-        out = self.ge(out)
+        out = self.se(out)
 
         if self.downsample is not None:
             identity = self.downsample(x)
@@ -129,7 +79,7 @@ class Bottleneck(nn.Module):
         self.bn2 = nn.BatchNorm2d(planes)
         self.conv3 = conv1x1(planes, planes * self.expansion)
         self.bn3 = nn.BatchNorm2d(planes * self.expansion)
-        self.ge  = GELayerv2()
+        self.se  = SELayer(planes * self.expansion)
         self.relu = nn.ReLU(inplace=True)
         self.downsample = downsample
         self.stride = stride
@@ -147,7 +97,7 @@ class Bottleneck(nn.Module):
 
         out = self.conv3(out)
         out = self.bn3(out)
-        out = self.ge(out)
+        out = self.se(out)
 
         if self.downsample is not None:
             identity = self.downsample(x)
@@ -226,9 +176,25 @@ class ResNet(nn.Module):
         return x
 
 
+def se_resnet18(pretrained=False, **kwargs):
+    """Constructs a ResNet-18 model.
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet
+    """
+    model = ResNet(BasicBlock, [2, 2, 2, 2], **kwargs)
+    return model
 
 
-def ge_resnet50(pretrained=False, **kwargs):
+def se_resnet34(pretrained=False, **kwargs):
+    """Constructs a ResNet-34 model.
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet
+    """
+    model = ResNet(BasicBlock, [3, 4, 6, 3], **kwargs)
+    return model
+
+
+def se_resnet50(pretrained=False, **kwargs):
     """Constructs a ResNet-50 model.
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
@@ -237,7 +203,7 @@ def ge_resnet50(pretrained=False, **kwargs):
     return model
 
 
-def ge_resnet101(pretrained=False, **kwargs):
+def se_resnet101(pretrained=False, **kwargs):
     """Constructs a ResNet-101 model.
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
@@ -246,7 +212,7 @@ def ge_resnet101(pretrained=False, **kwargs):
     return model
 
 
-def ge_resnet152(pretrained=False, **kwargs):
+def se_resnet152(pretrained=False, **kwargs):
     """Constructs a ResNet-152 model.
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
@@ -254,9 +220,8 @@ def ge_resnet152(pretrained=False, **kwargs):
     model = ResNet(Bottleneck, [3, 8, 36, 3], **kwargs)
     return model
 
-
 if __name__ == '__main__':
-    model = ge_resnet50()
-    i = torch.Tensor(1, 3, 224, 224)
+    model = se_resnet50().cuda()
+    i = torch.Tensor(1, 3, 256, 256).cuda()
     y = model(i)
     print(y.size())

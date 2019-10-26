@@ -1,76 +1,36 @@
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
-# Author: Xiangtai Li(lxtpku@pku.edu.cn)
-# Pytorch Implementation of GE-net:
 
-__all__ = [ 'ge_resnet50', 'ge_resnet101', 'ge_resnet152']
+__all__ = [ 'eca_resnet50', 'eca_resnet101']
 
 
+class eca_layer(nn.Module):
+    """Constructs a ECA module.
+    Args:
+        channel: Number of channels of the input feature map
+        k_size: Adaptive selection of kernel size
+    """
 
-class GELayerv1(nn.Module):
-    def __init__(self):
-        super(GELayerv1, self).__init__()
-        self.avg_pool = nn.AvgPool2d(kernel_size=(15, 15), stride=8)
-        self.sigmod = nn.Sigmoid()
-
-
-    def forward(self, x):
-        b, c, h, w = x.size()
-        res = x
-        y = self.avg_pool(x)
-        y = F.upsample(y,size=(h, w), mode="bilinear", align_corners=True)
-        y = y * x
-        return res + y
-
-
-class GELayerv2(nn.Module):
-    def __init__(self,):
-        super(GELayerv2, self).__init__()
+    def __init__(self, channel, k_size=3):
+        super(eca_layer, self).__init__()
         self.avg_pool = nn.AdaptiveAvgPool2d(1)
-        self.sigmod = nn.Sigmoid()
+        self.conv = nn.Conv1d(1, 1, kernel_size=k_size, padding=(k_size - 1) // 2, bias=False)
+        self.sigmoid = nn.Sigmoid()
 
     def forward(self, x):
-        b, c, _, _ = x.size()
-        res = x
-        y = self.avg_pool(x)
-        y = self.sigmod(y)
-        z = x * y
-        return res + z
-
-
-class GELayerv3(nn.Module):
-    def __init__(self, inplane):
-        super(GELayerv3, self).__init__()
-        self.dconv1 = nn.Sequential(
-            nn.Conv2d(inplane, inplane, kernel_size=3, groups=inplane, stride=2),
-            nn.BatchNorm2d(inplane),
-            nn.ReLU(inplace=False)
-        )
-        self.dconv2 = nn.Sequential(
-            nn.Conv2d(inplane, inplane, kernel_size=3, groups=inplane, stride=2),
-            nn.BatchNorm2d(inplane),
-            nn.ReLU(inplace=False)
-        )
-        self.dconv3 = nn.Sequential(
-            nn.Conv2d(inplane, inplane, kernel_size=3, groups=inplane, stride=2),
-            nn.BatchNorm2d(inplane),
-            nn.ReLU(inplace=False)
-        )
-        self.sigmoid_spatial = nn.Sigmoid()
-
-    def forward(self, x):
+        # x: input features with shape [b, c, h, w]
         b, c, h, w = x.size()
-        res1 = x
-        res2 = x
-        x = self.dconv1(x)
-        x = self.dconv2(x)
-        x = self.dconv3(x)
-        x = F.upsample(x, size=(h, w), mode="bilinear", align_corners=True)
-        x = self.sigmoid_spatial(x)
-        res1 = res1 * x
 
-        return res2 + res1
+        # feature descriptor on the global spatial information
+        y = self.avg_pool(x)
+
+        # Two different branches of ECA module
+        y = self.conv(y.squeeze(-1).transpose(-1, -2)).transpose(-1, -2).unsqueeze(-1)
+
+        # Multi-scale information fusion
+        y = self.sigmoid(y)
+
+        return x * y.expand_as(x)
 
 
 def conv3x3(in_planes, out_planes, stride=1):
@@ -96,7 +56,7 @@ class BasicBlock(nn.Module):
         self.bn2 = nn.BatchNorm2d(planes)
         self.downsample = downsample
         self.stride = stride
-        self.ge  = GELayerv2()
+        self.se  = eca_layer(planes)
 
     def forward(self, x):
         identity = x
@@ -107,7 +67,7 @@ class BasicBlock(nn.Module):
 
         out = self.conv2(out)
         out = self.bn2(out)
-        out = self.ge(out)
+        out = self.se(out)
 
         if self.downsample is not None:
             identity = self.downsample(x)
@@ -129,7 +89,7 @@ class Bottleneck(nn.Module):
         self.bn2 = nn.BatchNorm2d(planes)
         self.conv3 = conv1x1(planes, planes * self.expansion)
         self.bn3 = nn.BatchNorm2d(planes * self.expansion)
-        self.ge  = GELayerv2()
+        self.se  = eca_layer(planes * self.expansion)
         self.relu = nn.ReLU(inplace=True)
         self.downsample = downsample
         self.stride = stride
@@ -147,7 +107,7 @@ class Bottleneck(nn.Module):
 
         out = self.conv3(out)
         out = self.bn3(out)
-        out = self.ge(out)
+        out = self.se(out)
 
         if self.downsample is not None:
             identity = self.downsample(x)
@@ -227,8 +187,7 @@ class ResNet(nn.Module):
 
 
 
-
-def ge_resnet50(pretrained=False, **kwargs):
+def eca_resnet50(pretrained=False, **kwargs):
     """Constructs a ResNet-50 model.
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
@@ -237,7 +196,7 @@ def ge_resnet50(pretrained=False, **kwargs):
     return model
 
 
-def ge_resnet101(pretrained=False, **kwargs):
+def eca_resnet101(pretrained=False, **kwargs):
     """Constructs a ResNet-101 model.
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
@@ -246,7 +205,7 @@ def ge_resnet101(pretrained=False, **kwargs):
     return model
 
 
-def ge_resnet152(pretrained=False, **kwargs):
+def eca_resnet152(pretrained=False, **kwargs):
     """Constructs a ResNet-152 model.
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
@@ -254,9 +213,3 @@ def ge_resnet152(pretrained=False, **kwargs):
     model = ResNet(Bottleneck, [3, 8, 36, 3], **kwargs)
     return model
 
-
-if __name__ == '__main__':
-    model = ge_resnet50()
-    i = torch.Tensor(1, 3, 224, 224)
-    y = model(i)
-    print(y.size())
